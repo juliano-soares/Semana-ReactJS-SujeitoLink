@@ -6,6 +6,7 @@ import Menu from '../../components/Menu';
 import LinkItem from '../../components/LinkItem';
 
 import api from '../../services/api';
+import {saveLinks} from '../../services/storeLinks';
 
 export default function Home() {
   const [link, setLink] = useState('');
@@ -20,7 +21,7 @@ export default function Home() {
 
       setData(response.data);
       setShowModal(true);
-
+      saveLinks('@sujeitoLink', response.data);
       setLink('');
     } catch (error) {
       setLink('');
